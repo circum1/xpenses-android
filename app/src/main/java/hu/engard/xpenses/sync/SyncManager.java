@@ -4,6 +4,7 @@ import hu.engard.xpenses.MyApplication;
 import hu.engard.xpenses.dao.AbstractDao;
 import hu.engard.xpenses.dao.AccountDao;
 import hu.engard.xpenses.dao.TagDao;
+import hu.engard.xpenses.dao.TransDao;
 import hu.engard.xpenses.model.XpensesDbHelper;
 import hu.engard.xpenses.util.ModalDialog;
 
@@ -34,13 +35,14 @@ import android.widget.Toast;
 public class SyncManager {
 	private static final String serverHost="192.168.0.2:8080";
 	private static final String SERVER_UUID_KEY = "serverUUID";
-	private static final String NEXT_ANCHOR_KEY="nextAnchor";
+	private static final String LAST_ANCHOR_KEY ="lastAnchor";
 
 	private static final String serverUUID="f720da70-a4b8-11e3-a5e2-0800200c9a66";
 
 	private static ObjectMapper mapper=new ObjectMapper();
 	private static AccountDao accountDao=new AccountDao();
-	private static AbstractDao tagDao=new TagDao();
+	private static TagDao tagDao=new TagDao();
+	private static TransDao transDao=new TransDao();
 
 	//	private static final String CMD_FULL_SYNC="fullSync";
 	//	private static final String CMD_GET_CHANGES="getChanges";
@@ -99,6 +101,10 @@ public class SyncManager {
 			for (JsonNode node : root.path("tags")) {
 				Log.i("SyncManager", "node: "+node);
 				tagDao.insert(node);
+			}
+			for (JsonNode node : root.path("transactions")) {
+				Log.i("SyncManager", "node: "+node);
+				transDao.insert(node);
 			}
 		} catch (JsonProcessingException e) {
 			Log.e("SyncManager", "Bad answer for fullSync from server", e);

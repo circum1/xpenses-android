@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:onClick="showTransactions"
         android:text="@string/Transactions"
-        android:id="@+id/" />
+        android:id="@+id/btnShowTransactions" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

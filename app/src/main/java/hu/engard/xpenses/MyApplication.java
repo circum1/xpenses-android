@@ -30,7 +30,7 @@ public class MyApplication extends Application {
         prefs = getSharedPreferences("hu.engard.xpenses.Prefs", Context.MODE_PRIVATE);
         if (!prefs.contains(PREF_CLIENT_UUID)) {
         	prefs.edit().putString(PREF_CLIENT_UUID, UUID.randomUUID().toString()).commit();
-    		Log.i("MyApplication", "Generated new client UUID "+MyApplication.instance().getPrefs().getString(MyApplication.PREF_CLIENT_UUID, ""));
+					Log.i("MyApplication", "Generated new client UUID "+MyApplication.instance().getPrefs().getString(MyApplication.PREF_CLIENT_UUID, ""));
         }
         // TODO
        prefs.edit().putString(PREF_USERNAME, "fery").putString(PREF_PASSWORD, "x").putString(PREF_EMAIL, "x@x.hu").apply();

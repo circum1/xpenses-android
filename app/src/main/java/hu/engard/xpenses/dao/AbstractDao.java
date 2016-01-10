@@ -50,14 +50,19 @@ abstract public class AbstractDao {
 		return MyApplication.instance().getDbHelper().getWritableDatabase();
 	}
 
-	public void insert(JsonNode node) {
+	/**
+	 * Insert a new row from a received full sync JSON structure.
+	 * @param node
+   */
+	public long insert(JsonNode node) {
 		HashMap<String, Object> map = json2map(node);
 		ContentValues cv = convertSyncMapToCV(map);
 		long ret=db().insert(getTableName(), null, cv);
 		Log.i(getTableName()+"Dao", "inserting {"+cv+"}. result: "+ret);
+		return ret;
 	}
 	
-	private HashMap<String, Object> json2map(JsonNode node) {
+	public static HashMap<String, Object> json2map(JsonNode node) {
 		HashMap<String, Object> map=MyApplication.getMapper().convertValue(node, new TypeReference<HashMap<String, Object>>() {});
 		return map;
 	}

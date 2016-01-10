@@ -4,10 +4,11 @@ CREATE TABLE SyncState (
   -- The uuid of the remote (client or server) -- sent by the client at first connection.
   -- The client UUID is re-generated each time the database is cleared (e.g., reinstall or login with another user)
   id VARCHAR(250) NOT NULL,
-  -- The last nextAnchor we have sent to the remote.
+  -- The last lastAnchor we have sent to the remote.
   -- this is the id of the last Journal row we have sent to the remote.
+  -- it can be negative (-1) if no row was sent yet.
   lastAnchor INTEGER,
-  -- The last received nextAnchor from remote.
+  -- The last received lastAnchor from remote.
   -- Actually, this is the id of the last Journal row the remote machine sent to us (stored for validation of the remote side sync state).
   lastAnchorFromRemote INTEGER,
   PRIMARY KEY (id)

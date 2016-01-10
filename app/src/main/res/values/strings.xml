@@ -12,5 +12,13 @@
     <string name="title_transaction_list">Transactions</string>
     <string name="title_transaction_detail">Transaction Detail</string>
     <string name="Transactions">Transactions</string>
-    
+    <string name="add_transaction">Add transaction</string>
+    <string name="title_activity_add_transaction">AddTransactionActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="amount">Amount</string>
+    <string name="category">Category</string>
+
 </resources>
