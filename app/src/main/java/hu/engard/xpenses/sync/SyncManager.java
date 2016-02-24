@@ -41,7 +41,7 @@ public class SyncManager {
 
 	private static ObjectMapper mapper=new ObjectMapper();
 	private static AccountDao accountDao=new AccountDao();
-	private static TagDao tagDao=new TagDao();
+	private static TagDao tagDao=TagDao.instance();
 	private static TransDao transDao=new TransDao();
 
 	//	private static final String CMD_FULL_SYNC="fullSync";

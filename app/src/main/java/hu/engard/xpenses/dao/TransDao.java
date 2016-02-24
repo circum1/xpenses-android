@@ -1,11 +1,11 @@
 package hu.engard.xpenses.dao;
 
-import hu.engard.expenses.generated.tables.interfaces.ITransaction;
-import hu.engard.expenses.generated.tables.pojos.Transaction;
-import hu.engard.expenses.generated.tables.pojos.Transactiontag;
-import hu.engard.xpenses.MyApplication;
-import hu.engard.xpenses.model.XpensesDbHelper;
-import hu.engard.xpenses.util.DBUtils;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
+import com.fasterxml.jackson.databind.JsonNode;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -14,12 +14,10 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-
-import com.fasterxml.jackson.databind.JsonNode;
+import hu.engard.expenses.generated.tables.interfaces.ITransaction;
+import hu.engard.expenses.generated.tables.pojos.Transaction;
+import hu.engard.xpenses.MyApplication;
+import hu.engard.xpenses.util.DBUtils;
 
 public class TransDao extends AbstractDao {
   public final static String C_ID = "_id".toLowerCase(Locale.getDefault());
@@ -31,7 +29,7 @@ public class TransDao extends AbstractDao {
   public final static String C_TYPE = "type".toLowerCase(Locale.getDefault());
 
   private static AccountDao accountDao = new AccountDao();
-  private static TagDao tagDao = new TagDao();
+  private static TagDao tagDao = TagDao.instance();
 
   @Override
   public String getTableName() {

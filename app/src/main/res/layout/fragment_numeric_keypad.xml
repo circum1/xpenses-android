@@ -17,14 +17,14 @@
         <!-- android:layout_centerHorizontal="true" -->
 
         <Button
-            android:id="@+id/clear"
+            android:id="@+id/numpadClear"
             android:text="Clear"/>
 
         <Button
-            android:id="@+id/back"
+            android:id="@+id/numpadBack"
             android:layout_columnSpan="2"
             android:layout_gravity="fill_horizontal"
-            android:text="<-"/>
+            android:text="&lt;-"/>
 
         <Button
             android:id="@+id/Button7"
@@ -71,7 +71,7 @@
             android:id="@+id/dot"
             android:text="."/>
         <Button
-            android:id="@+id/done"
+            android:id="@+id/numpadDone"
             android:text="Done"/>
     </GridLayout>
 

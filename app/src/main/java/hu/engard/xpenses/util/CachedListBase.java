@@ -1,10 +1,12 @@
 package hu.engard.xpenses.util;
 
+import java.util.List;
+
 /**
  * Created by fery on 1/4/16.
  */
-public abstract class CachedObjectBase<T> {
-  public CachedObjectBase() {
+public abstract class CachedListBase<T> {
+  public CachedListBase() {
     dirty=true;
   }
 
@@ -12,7 +14,7 @@ public abstract class CachedObjectBase<T> {
     this.dirty=true;
   }
 
-  public T get() {
+  public List<T> get() {
     if (dirty) {
       updateCache();
       dirty=false;
@@ -20,7 +22,7 @@ public abstract class CachedObjectBase<T> {
     return cachedObject;
   }
 
-  protected T cachedObject;
+  protected List<T> cachedObject;
   protected abstract void updateCache();
 
   private boolean dirty;

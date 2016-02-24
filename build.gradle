@@ -1,4 +1,18 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+//System.setProperty('http.proxyHost', '3.187.157.236')
+//System.setProperty('http.proxyPort', '9400')
+//System.setProperty('http.nonProxyHosts', 'localhost')
+//System.setProperty('http.proxyUser', 'x')
+//System.setProperty('http.proxyPassword', 'x')
+//
+//System.setProperty('https.proxyHost', '3.187.157.236')
+//System.setProperty('https.proxyPort', '9400')
+//System.setProperty('https.nonProxyHosts', 'localhost')
+//System.setProperty('https.proxyUser', 'x')
+//System.setProperty('https.proxyPassword', 'x')
+
+
 buildscript {
     repositories {
         jcenter()

@@ -10,13 +10,16 @@ import android.app.FragmentManager;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.TextView;
+import java.io.Serializable;
+
+import layout.NumericKeypadFragment;
 
 public class AddTransactionActivity extends Activity implements ActionBar.TabListener {
 
@@ -117,7 +120,6 @@ public class AddTransactionActivity extends Activity implements ActionBar.TabLis
   public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
   }
 
-
   /**
    * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
    * one of the sections/tabs/pages.
@@ -192,4 +194,5 @@ public class AddTransactionActivity extends Activity implements ActionBar.TabLis
       return rootView;
     }
   }
+
 }
